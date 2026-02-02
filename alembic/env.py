@@ -5,7 +5,8 @@ from sqlalchemy import engine_from_config, pool
 from alembic import context
 from dotenv import load_dotenv
 from app.db import Base
-
+from app.models.city import City
+from app.models.temperature import Temperature
 
 config = context.config
 
@@ -13,8 +14,8 @@ if config.config_file_name:
     fileConfig(config.config_file_name)
 
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-SRC_DIR = os.path.join(BASE_DIR, "src")
-sys.path.insert(0, SRC_DIR)
+APP_DIR = os.path.join(BASE_DIR, "app")
+sys.path.insert(0, APP_DIR)
 
 load_dotenv(os.path.join(BASE_DIR, ".env"))
 config.set_main_option("sqlalchemy.url", os.getenv("DATABASE_URL"))

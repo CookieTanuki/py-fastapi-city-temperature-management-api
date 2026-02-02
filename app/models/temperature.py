@@ -4,7 +4,7 @@ from sqlalchemy import func, ForeignKey, Float
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db import Base
-from app.models import City
+from .city import City
 
 
 class Temperature(Base):
